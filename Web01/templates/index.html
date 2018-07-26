@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>C4E Blog</h1>
+    {% for post in posts %}
+        <div>
+            <!-- jinja2 -->
+            <!-- <h3>{{ post["title"] }}</h3> -->
+            <h3>{{ post.title }}</h3>
+            <p>
+                {{ post.content }}
+            </p>
+            <i>By:  
+                <!-- conditional exp. for 2 options only -->
+                {% "Mr" if post.gender == 1 else "Ms." %}
+                <!-- {%- if post.gender == 1 -%}
+                Mr
+                {% else %}
+                    Ms.
+                {% endif %}  -->
+                {{ post.author }}</i>
+        </div>
+    {% endfor %}
+    <!-- <div>
+        <h3>Thơ con cóc</h3>
+        <p>
+            Râu tôm nấu với ruột bầu
+            <br>
+            Chồng chan vợ húp gật đầu khen ngon
+        </p> -->
+        <!-- <i>By: unknown</i> -->
+    <!-- </div> -->
+</body>
+</html>
