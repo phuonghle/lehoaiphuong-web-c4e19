@@ -13,6 +13,8 @@ from models.customer import Customer
 
 app = Flask(__name__)
 
+mlab.connect()
+
 
 @app.route('/customer/<g>')
 def customer(g):

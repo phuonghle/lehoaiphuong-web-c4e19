@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Admin</h1>
+    <table border="1px">
+         <thead>
+                <!-- <caption><b>Service</b></caption> -->
+                <th><b>STT</b></th>
+                <th><b>Name</b></th>
+                <th><b>YoB</b></th>
+                <th><b>Gender</b></th>
+                <th><b>Height</b></th>
+                <th><b>Phone</b></th>
+                <th><b>Address</b></th>
+                <th><b>Status</b></th>
+                <th><b>Action</b></th>
+        </thead>
+
+        <tbody>
+            {% for service in all_service %}
+                <tr>
+                        <td><b>{{ loop.index }}</b></td>
+                        <td>{{ service.name }}</td>
+                        <td>{{ service.yob }}</td>
+                        <td>{{ "Nam" if service.gender else "Nữ" }}</td>
+                        <td>{{ service.height }}</td>
+                        <td>{{ service.phone }}</td>
+                        <td>{{ service.address }}</td>
+                        <td>{{ "Rảnh" if service.status else "Bận" }}</td>
+                        <td>
+                            <a href="">Sửa</a>
+                            <a href="{{ url_for('delete', service_id=service.id) }}">Xoá</a>
+                        </td>
+                    </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
